@@ -1,0 +1,175 @@
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+body {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding: 20px;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar h2 {
+  color: #38bdf8;
+}
+
+.links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #cbd5f5;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: #38bdf8;
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 15px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(56,189,248,0.4);
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+button {
+  padding: 8px 18px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #38bdf8;
+}
+
+/* ========================= */
+/* INPUT */
+/* ========================= */
+input {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* ========================= */
+/* CHAT */
+/* ========================= */
+.chat-box {
+  background: rgba(0,0,0,0.3);
+  padding: 15px;
+  height: 300px;
+  overflow-y: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ========================= */
+/* DASHBOARD */
+/* ========================= */
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  color: #38bdf8;
+}
+
+/* ========================= */
+/* LOADER */
+/* ========================= */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #1e293b;
+  border-top: 5px solid #38bdf8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================= */
+/* ERROR */
+/* ========================= */
+.error-box {
+  background: rgba(255,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 768px) {
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+}

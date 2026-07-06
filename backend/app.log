@@ -1,0 +1,14 @@
+2026-07-02 22:15:55,550 | ERROR | Database connection failed: 'Settings' object has no attribute 'DB_POOL_SIZE'
+2026-07-02 22:30:04,188 | INFO | Creating database tables...
+2026-07-02 22:30:04,278 | INFO | Database initialized successfully
+2026-07-02 22:37:22,042 | INFO | Creating database tables...
+2026-07-02 22:37:22,080 | INFO | Database initialized successfully
+2026-07-02 23:48:02,013 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:48:05,803 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:48:58,547 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:49:01,086 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:51:16,714 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:51:17,558 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:51:18,377 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:51:19,224 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-07-02 23:51:40,069 | ERROR | Live error: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?

@@ -14,14 +14,14 @@ from config import settings
 # ================================
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("🚀 Starting Cricket AI Backend...")
+    print(" Starting Cricket AI Backend...")
 
     # Create DB tables
     Base.metadata.create_all(bind=engine)
 
     yield
 
-    print("🛑 Server Stopped")
+    print(" Server Stopped")
 
 
 # ================================
@@ -55,7 +55,7 @@ async def log_requests(request: Request, call_next):
 # ================================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 🔥 force allow all (test purpose)
+    allow_origins=["*"],  #  force allow all (test purpose)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -67,7 +67,7 @@ app.add_middleware(
 # ================================
 @app.get("/")
 def home():
-    return {"message": "🏏 Cricket AI Backend Running"}
+    return {"message": " Cricket AI Backend Running"}
 
 
 @app.get("/health")
@@ -82,7 +82,7 @@ app.include_router(auth.router, prefix="/auth")
 app.include_router(cricket.router, prefix="/cricket")
 app.include_router(user.router, prefix="/user")
 
-# 🔥 IMPORTANT (chat must be included)
+#  IMPORTANT (chat must be included)
 app.include_router(chat.router, prefix="/chat")
 
 if settings.ENABLE_INSIGHTS:

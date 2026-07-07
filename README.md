@@ -1,71 +1,50 @@
-```markdown
 # 🏏 Cricket Stats AI
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=00C2FF&center=true&vCenter=true&width=700&lines=Cricket+Analytics+Platform;Real-Time+Match+Insights;AI-Powered+Cricket+Assistant;FastAPI+%2B+React+Full+Stack+App" />
-</p>
+Cricket Stats AI is a full-stack web application built to provide real-time cricket data, player analytics, and AI-powered insights. It combines a modern React frontend with a FastAPI backend to deliver a scalable and intelligent sports analytics platform.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Backend-FastAPI-green?style=for-the-badge&logo=fastapi" />
-  <img src="https://img.shields.io/badge/API-REST-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/github/stars/puneetbohra30-GREAT/Cricket_stats?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/puneetbohra30-GREAT/Cricket_stats?style=for-the-badge" />
-</p>
-
----
-
-## 📌 Overview
-
-**Cricket Stats AI** is a full-stack web application designed to deliver **real-time cricket data, player analytics, and AI-powered insights**.  
-It combines modern frontend technologies with a high-performance backend to create a scalable and intelligent sports analytics platform.
-
-This project demonstrates:
-- Full-stack development (React + FastAPI)
-- API design & integration
-- Authentication systems
-- AI-driven features and insights
+This project demonstrates strong skills in full-stack development, API design, authentication systems, and AI feature integration.
 
 ---
 
 ## 🚀 Live Demo
 
-🌐 Frontend (Vercel):  
-https://your-frontend-url.vercel.app  
+Frontend (Vercel):
+[https://your-frontend-url.vercel.app](https://your-frontend-url.vercel.app)
 
-⚙️ Backend API (Render):  
-https://your-backend-url.onrender.com  
+Backend API (Render):
+[https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
+
+---
+
+## 📌 Overview
+
+The platform allows users to explore live cricket matches, analyze player performance, interact with an AI assistant, and gain predictive insights. It is designed with a clean UI and efficient backend architecture to simulate real-world production systems.
 
 ---
 
 ## ✨ Key Features
 
-- 🔴 **Live Match Tracking** — Real-time cricket score updates  
-- 📊 **Player Analytics** — Performance statistics and history  
-- 🤖 **AI Assistant** — Ask cricket-related queries intelligently  
-- ⚡ **Insights Engine** — Smart predictions and analysis  
-- 🔐 **Authentication** — Secure login & registration system  
-- 🌐 **REST API Integration** — Scalable backend architecture  
+* Live match tracking with real-time score updates
+* Detailed player analytics and historical performance
+* AI-powered cricket assistant for intelligent Q&A
+* Insights and predictions based on match data
+* Secure authentication system (login/register)
+* REST API-based scalable backend
 
 ---
 
 ## 🏗️ Tech Stack
 
-| Category        | Technology              |
-|----------------|------------------------|
-| Frontend       | React.js               |
-| Backend        | FastAPI (Python)       |
-| API            | RESTful Services       |
-| Database       | SQLite / PostgreSQL    |
-| Styling        | CSS / Modern UI Design |
-| Deployment     | Vercel + Render        |
-| Tools          | Git, GitHub, VS Code   |
+Frontend: React.js, HTML, CSS, JavaScript
+Backend: FastAPI (Python)
+API: RESTful services
+Database: SQLite or PostgreSQL
+Tools: Git, GitHub, VS Code
+Deployment: Vercel (frontend) and Render (backend)
 
 ---
 
 ## 📂 Project Structure
-
-```
 
 Cricket_stats/
 │── backend/
@@ -76,7 +55,7 @@ Cricket_stats/
 │   │   └── main.py
 │   ├── requirements.txt
 │   └── .env
-│
+
 │── frontend/
 │   ├── public/
 │   ├── src/
@@ -84,155 +63,111 @@ Cricket_stats/
 │   │   ├── pages/
 │   │   └── services/
 │   └── package.json
-│
-│── README.md
 
-````
+│── README.md
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/puneetbohra30-GREAT/Cricket_stats.git
+Clone the repository:
+
+git clone [https://github.com/puneetbohra30-GREAT/Cricket_stats.git](https://github.com/puneetbohra30-GREAT/Cricket_stats.git)
 cd Cricket_stats
-````
 
-### 2. Backend Setup
+Backend setup:
 
-```bash
 cd backend
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
 
-Backend will run at:
-👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Backend will run on: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
----
+Frontend setup:
 
-### 3. Frontend Setup
-
-```bash
 cd frontend
 npm install
 npm start
-```
 
-Frontend will run at:
-👉 [http://localhost:3000](http://localhost:3000)
+Frontend will run on: [http://localhost:3000](http://localhost:3000)
 
 ---
 
 ## 🔐 Environment Variables
 
-Create a `.env` file inside `backend/`:
+Create a .env file inside the backend folder and add:
 
-```
 DATABASE_URL=your_database_url
 SECRET_KEY=your_secret_key
 ACCESS_TOKEN_EXPIRE_MINUTES=60
-```
 
 ---
 
 ## 📊 API Documentation
 
 Base URL:
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-```
-http://127.0.0.1:8000
-```
+Authentication Endpoints:
+POST /register → Register a new user
+POST /login → Authenticate user
 
-### 🔑 Authentication
+Cricket Data Endpoints:
+GET /live → Fetch live match data
+GET /players → Get player statistics
+GET /schedule → View match schedule
 
-| Method | Endpoint  | Description       |
-| ------ | --------- | ----------------- |
-| POST   | /register | Register new user |
-| POST   | /login    | User login        |
-
----
-
-### 🏏 Cricket Data
-
-| Method | Endpoint  | Description           |
-| ------ | --------- | --------------------- |
-| GET    | /live     | Get live match data   |
-| GET    | /players  | Get player statistics |
-| GET    | /schedule | Match schedule        |
-
----
-
-### 🤖 AI Features
-
-| Method | Endpoint  | Description                   |
-| ------ | --------- | ----------------------------- |
-| POST   | /chat     | AI cricket assistant response |
-| GET    | /insights | Match predictions & insights  |
+AI Endpoints:
+POST /chat → AI assistant responses
+GET /insights → Match predictions and insights
 
 ---
 
 ## 🧠 Architecture
 
-* **Frontend (React)** communicates with backend via REST APIs
-* **FastAPI backend** handles business logic and data processing
-* **AI module** generates intelligent responses and predictions
-* **Database layer** stores user and match-related data
+The React frontend communicates with the FastAPI backend through REST APIs. The backend handles business logic, authentication, and data processing. AI-related features generate intelligent responses and predictions, while the database manages user and cricket data efficiently.
 
 ---
 
 ## 🚀 Deployment
 
-* **Frontend:** Vercel
-* **Backend:** Render
+The application is designed for modern deployment:
 
-Steps include:
-
-* Build frontend → deploy on Vercel
-* Deploy FastAPI backend → Render
-* Connect via environment variables
+* Frontend deployed on Vercel
+* Backend deployed on Render
+* Environment variables used for secure configuration
 
 ---
 
 ## 🎯 Future Enhancements
 
-* Advanced data visualization dashboards
-* Real-time WebSocket updates
-* Machine learning prediction models
-* Role-based authentication system
-* Mobile-first UI optimization
+* Advanced analytics dashboard
+* Real-time updates using WebSockets
+* Machine learning-based prediction models
+* Role-based authentication
+* Improved mobile responsiveness
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome.
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to GitHub
-5. Open a Pull Request
+Contributions are welcome. You can fork the repository, create a feature branch, commit your changes, and submit a pull request.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the MIT License.
 
 ---
 
 ## 👨‍💻 Author
 
-**Puneet Bohra**
+Puneet Bohra
 GitHub: [https://github.com/puneetbohra30-GREAT](https://github.com/puneetbohra30-GREAT)
 
 ---
 
-<p align="center">
-  ⭐ Star this repository if you found it useful!
-</p>
-```
+⭐ Star this repository if you found it useful!

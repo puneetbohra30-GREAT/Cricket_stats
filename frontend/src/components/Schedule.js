@@ -11,7 +11,7 @@ function Schedule() {
         const res = await getSchedule();
         console.log("SCHEDULE:", res);
 
-        // ✅ FIX HERE
+        // FIX HERE
         if (res && Array.isArray(res.schedule)) {
           setMatches(res.schedule);
         } else {

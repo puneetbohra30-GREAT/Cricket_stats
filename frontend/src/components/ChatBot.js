@@ -23,7 +23,7 @@ function ChatBot() {
         if (typeof res === "string") {
           replyText = res;
         } else if (res.response) {
-          replyText = res.response;   // ✅ main fix
+          replyText = res.response;   //  main fix
         } else if (res.reply) {
           replyText = res.reply;
         } else if (res.message) {
@@ -43,7 +43,7 @@ function ChatBot() {
     } catch (err) {
       setMessages((prev) => [
         ...prev,
-        { type: "bot", text: "Server error ❌" },
+        { type: "bot", text: "Server error " },
       ]);
     }
 

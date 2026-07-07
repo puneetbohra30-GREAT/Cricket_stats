@@ -4,7 +4,7 @@ import axios from "axios";
 // BASE API INSTANCE
 // ==============================
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000", // ✅ backend
+  baseURL: "http://127.0.0.1:8000", //  backend
   timeout: 15000,
   headers: {
     "Content-Type": "application/json",
@@ -38,16 +38,16 @@ API.interceptors.request.use(
 // ==============================
 API.interceptors.response.use(
   (response) => {
-    console.log("✅ RESPONSE:", response.config.url);
+    console.log(" RESPONSE:", response.config.url);
     return response;
   },
   (error) => {
-    console.error("❌ API ERROR:", error?.response?.data || error.message);
+    console.error(" API ERROR:", error?.response?.data || error.message);
 
-    // 🔥 TOKEN EXPIRED / UNAUTHORIZED
+    //  TOKEN EXPIRED / UNAUTHORIZED
     if (error?.response?.status === 401) {
       localStorage.removeItem("token");
-      alert("Session expired, please login again ⚠️");
+      alert("Session expired, please login again ");
       window.location.href = "/auth";
     }
 

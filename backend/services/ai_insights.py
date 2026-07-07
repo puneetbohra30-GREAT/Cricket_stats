@@ -26,10 +26,10 @@ def generate_insight(player_name: str) -> str:
     ]
 
     forms = [
-        "🔥 in top form",
-        "📈 improving steadily",
-        "⚠️ inconsistent lately",
-        "💪 performing strongly"
+        " in top form",
+        "improving steadily",
+        "inconsistent lately",
+        "performing strongly"
     ]
 
     # Random analysis generation

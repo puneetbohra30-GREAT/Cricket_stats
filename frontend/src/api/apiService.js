@@ -5,13 +5,13 @@ import API from "./api";
 // ===============================
 export const login = async (data) => {
   const res = await API.post("/auth/login", data);
-  console.log("✅ LOGIN API:", res.data);
+  console.log(" LOGIN API:", res.data);
   return res.data;
 };
 
 export const register = async (data) => {
   const res = await API.post("/auth/register", data);
-  console.log("✅ REGISTER API:", res.data);
+  console.log(" REGISTER API:", res.data);
   return res.data;
 };
 
@@ -52,10 +52,10 @@ export const sendChat = async (message) => {
   if (!message) return null;
 
   const res = await API.post("/chat/", {
-    message: message   // ✅ FIXED
+    message: message   // FIXED
   });
 
-  console.log("✅ CHAT API:", res.data);
+  console.log(" CHAT API:", res.data);
 
   return res.data;
 };

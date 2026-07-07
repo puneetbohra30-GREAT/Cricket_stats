@@ -6,15 +6,6 @@ This project demonstrates strong skills in full-stack development, API design, a
 
 ---
 
-## 🚀 Live Demo
-
-Frontend (Vercel):
-[https://your-frontend-url.vercel.app](https://your-frontend-url.vercel.app)
-
-Backend API (Render):
-[https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
-
----
 
 ## 📌 Overview
 

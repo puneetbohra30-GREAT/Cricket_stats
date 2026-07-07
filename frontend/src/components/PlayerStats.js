@@ -11,7 +11,7 @@ function PlayerStats() {
 
       console.log("PLAYER DATA:", res);
 
-      // 🔥 FIX: players array handle karo
+      //  FIX: players array handle karo
       if (res?.players && res.players.length > 0) {
         setData(res.players[0]);
       } else {

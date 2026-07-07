@@ -7,7 +7,7 @@ function Navbar() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
-  // 🔥 AUTH CHECK + USERNAME
+  //  AUTH CHECK + USERNAME
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem("token");
@@ -17,7 +17,7 @@ function Navbar() {
 
         try {
           const decoded = jwtDecode(token);
-          setUsername(decoded?.sub || "User"); // 👤 username from JWT
+          setUsername(decoded?.sub || "User"); // username from JWT
         } catch {
           setUsername("");
         }
@@ -29,17 +29,17 @@ function Navbar() {
 
     checkAuth();
 
-    // 🔥 REAL-TIME UPDATE (important)
+    // REAL-TIME UPDATE (important)
     window.addEventListener("storage", checkAuth);
 
     return () => window.removeEventListener("storage", checkAuth);
   }, []);
 
-  // 🔥 LOGOUT
+  //  LOGOUT
   const handleLogout = () => {
     localStorage.removeItem("token");
 
-    // 🔥 trigger update everywhere
+    //  trigger update everywhere
     window.dispatchEvent(new Event("storage"));
 
     navigate("/auth");

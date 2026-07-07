@@ -32,7 +32,7 @@ function Profile() {
         {loading ? "Loading..." : "Load"}
       </button>
 
-      {/* ✅ DATA SHOW */}
+      {/* DATA SHOW */}
       {data && (
         <div className="card">
           <h3>{data.username}</h3>

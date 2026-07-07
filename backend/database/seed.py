@@ -46,7 +46,7 @@ def seed_data():
     db.commit()
     db.close()
 
-    print("✅ Seed data inserted!")
+    print(" Seed data inserted!")
 
 
 if __name__ == "__main__":

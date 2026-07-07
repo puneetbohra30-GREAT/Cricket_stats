@@ -83,7 +83,7 @@ def check_db():
         db = SessionLocal()
         db.execute(text("SELECT 1"))   # SQLAlchemy 2.x safe
         db.close()
-        logger.info("DB Connected ✅")
+        logger.info("DB Connected ")
         return True
     except Exception as e:
         logger.error(f"DB connection failed: {str(e)}")

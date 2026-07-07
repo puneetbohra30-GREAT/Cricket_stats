@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import datetime, timedelta
 import random
 
-# 🔐 AUTH IMPORT
+#  AUTH IMPORT
 from utils.deps import get_current_user
 
 router = APIRouter()
@@ -24,12 +24,12 @@ VENUES = ["Mumbai", "Delhi", "Chennai", "Kolkata"]
 
 
 # -------------------------------
-# LIVE MATCHES (🔐 SECURED)
+# LIVE MATCHES ( SECURED)
 # -------------------------------
 @router.get("/live")
 def live_matches(
     limit: int = 2,
-    user=Depends(get_current_user)   # 🔥 LOGIN REQUIRED
+    user=Depends(get_current_user)   #  LOGIN REQUIRED
 ):
     matches = []
 
@@ -44,7 +44,7 @@ def live_matches(
             "score": f"{random.randint(140,200)}/{random.randint(2,8)}",
             "overs": f"{random.randint(10,20)}.{random.randint(0,5)}",
             "venue": random.choice(VENUES),
-            "status": "Live 🔥",
+            "status": "Live ",
             "time": datetime.now().strftime("%H:%M:%S")
         })
 
@@ -55,7 +55,7 @@ def live_matches(
 
 
 # -------------------------------
-# SCHEDULE (🔐 SECURED)
+# SCHEDULE ( SECURED)
 # -------------------------------
 @router.get("/schedule")
 def schedule(

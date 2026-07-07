@@ -12,7 +12,7 @@ function LiveScores() {
 
         console.log("API RESPONSE:", res);
 
-        // 🔥 HANDLE ALL CASES
+        //  HANDLE ALL CASES
         if (Array.isArray(res)) {
           setMatches(res);
         } else if (Array.isArray(res?.matches)) {

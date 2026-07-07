@@ -14,5 +14,5 @@ async def chat(data: dict):
         reply = f"You said: {message}"
 
     return {
-        "response": reply   # ✅ IMPORTANT (was 'reply')
+        "response": reply   # IMPORTANT (was 'reply')
     }

@@ -117,7 +117,7 @@ export function Loader() {
 export function ErrorBox({ message }) {
   return (
     <div className="error-box">
-      <h3>⚠ Error</h3>
+      <h3> Error</h3>
       <p>{message}</p>
     </div>
   );

@@ -27,5 +27,5 @@ root.render(
 // OPTIONAL PERFORMANCE LOG
 // ===============================
 if (process.env.NODE_ENV === "development") {
-  console.log("🚀 Cricket AI Frontend Running...");
+  console.log("Cricket AI Frontend Running...");
 }

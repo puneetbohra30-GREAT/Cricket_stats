@@ -12,7 +12,8 @@ sqlalchemy==2.0.25
 # ===============================
 # PYDANTIC (FIXED FOR PYTHON 3.13)
 # ===============================
-pydantic-core==2.18.1
+pydantic==2.7.4
+pydantic-settings==2.2.1
 
 # ===============================
 # AUTH / SECURITY

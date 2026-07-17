@@ -4,7 +4,7 @@ import axios from "axios";
 // BASE API INSTANCE
 // ==============================
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000", //  backend
+  baseURL: "[https://cricket-stats-8i7l.onrender.com](https://cricket-stats-8i7l.onrender.com)", //  backend
   timeout: 15000,
   headers: {
     "Content-Type": "application/json",

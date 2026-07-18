@@ -14,14 +14,14 @@ from config import settings
 # ================================
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print(" Starting Cricket AI Backend...")
+    print("🚀 Starting Cricket AI Backend...")
 
     # Create DB tables
     Base.metadata.create_all(bind=engine)
 
     yield
 
-    print(" Server Stopped")
+    print("🛑 Server Stopped")
 
 
 # ================================
@@ -55,7 +55,7 @@ async def log_requests(request: Request, call_next):
 # ================================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  #  force allow all (test purpose)
+    allow_origins=["*"],   # change in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -67,7 +67,7 @@ app.add_middleware(
 # ================================
 @app.get("/")
 def home():
-    return {"message": " Cricket AI Backend Running"}
+    return {"message": "🏏 Cricket AI Backend Running"}
 
 
 @app.get("/health")
@@ -76,15 +76,23 @@ def health():
 
 
 # ================================
-# ROUTES
+# ROUTES (IMPORTANT FIXED)
 # ================================
+
+# ✅ auth → /auth/*
 app.include_router(auth.router, prefix="/auth")
+
+# ✅ cricket → /cricket/*
+# ⚠️ cricket.py में prefix नहीं होना चाहिए
 app.include_router(cricket.router, prefix="/cricket")
+
+# ✅ user → /user/*
 app.include_router(user.router, prefix="/user")
 
-#  IMPORTANT (chat must be included)
+# ✅ chat → /chat/*
 app.include_router(chat.router, prefix="/chat")
 
+# OPTIONAL MODULES
 if settings.ENABLE_INSIGHTS:
     app.include_router(insights.router, prefix="/insights")
 
@@ -96,7 +104,7 @@ if settings.ENABLE_EXTERNAL:
 
 
 # ================================
-# DEBUG ROUTE (VERY IMPORTANT)
+# DEBUG ROUTE
 # ================================
 @app.get("/routes")
 def list_routes():

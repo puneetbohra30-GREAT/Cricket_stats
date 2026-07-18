@@ -44,15 +44,20 @@ function Auth() {
 
         console.log("LOGIN RESPONSE:", res);
 
-        // ✅ FINAL FIX
-        const token = res.data.access_token;
+        // ✅ FINAL SAFE FIX (handles all cases)
+        const token =
+          res?.access_token ||
+          res?.data?.access_token;
 
         if (!token) {
+          console.log("FULL RESPONSE:", res);
           throw new Error("Token not received from server");
         }
 
+        // SAVE TOKEN
         localStorage.setItem("token", token);
 
+        // NAVBAR UPDATE
         window.dispatchEvent(new Event("storage"));
 
         alert("Login Successful");

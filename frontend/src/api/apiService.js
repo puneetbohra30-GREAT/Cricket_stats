@@ -6,14 +6,15 @@ import API from "./api";
 export const login = async (data) => {
   const res = await API.post("/auth/login", data);
   console.log("LOGIN API:", res.data);
-  return res; // ✅ FULL RESPONSE RETURN
+  return res.data;   // ✅ FIXED
 };
 
 export const register = async (data) => {
   const res = await API.post("/auth/register", data);
   console.log("REGISTER API:", res.data);
-  return res; // ✅ FULL RESPONSE RETURN
+  return res.data;   // ✅ FIXED
 };
+
 
 // ===============================
 // USER APIs
@@ -24,6 +25,7 @@ export const getProfile = async (username) => {
   const res = await API.get(`/user/${username.trim()}`);
   return res.data;
 };
+
 
 // ===============================
 // CRICKET APIs
@@ -45,6 +47,7 @@ export const getSchedule = async () => {
   return res.data;
 };
 
+
 // ===============================
 // CHAT API
 // ===============================
@@ -58,6 +61,7 @@ export const sendChat = async (message) => {
   return res.data;
 };
 
+
 // ===============================
 // INSIGHTS API
 // ===============================
@@ -67,6 +71,7 @@ export const getInsights = async (player) => {
   const res = await API.get(`/insights?player=${player}`);
   return res.data;
 };
+
 
 // ===============================
 // KNOWLEDGE API

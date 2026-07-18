@@ -1,11 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from database.db import get_db
 from database.models.user import User
 from database.schemas.user import UserCreate, UserLogin
 from utils.auth_utils import hash_password, verify_password, create_token
 
-router = APIRouter()
+router = APIRouter(prefix="/auth", tags=["Auth"])  # ✅ PREFIX ADDED
+
 
 # -------------------------------
 # REGISTER
@@ -15,7 +16,10 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     existing_user = db.query(User).filter(User.username == user.username).first()
 
     if existing_user:
-        raise HTTPException(status_code=400, detail="Username already exists")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Username already exists"
+        )
 
     hashed_password = hash_password(user.password)
 
@@ -36,9 +40,12 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             "user_id": new_user.id
         }
 
-    except Exception:
+    except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail="Registration failed")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Registration failed: {str(e)}"
+        )
 
 
 # -------------------------------
@@ -49,16 +56,22 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     db_user = db.query(User).filter(User.username == user.username).first()
 
     if not db_user:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
 
     if not verify_password(user.password, db_user.password):
-        raise HTTPException(status_code=401, detail="Invalid password")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid password"
+        )
 
     token = create_token({"sub": db_user.username})
 
     return {
         "status": "success",
-        "access_token": token,
+        "access_token": token,   # ✅ IMPORTANT (frontend इसी से लेगा)
         "token_type": "bearer"
     }
 
@@ -91,9 +104,15 @@ def delete_user(username: str, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == username).first()
 
     if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
 
     db.delete(user)
     db.commit()
 
-    return {"message": f"{username} deleted successfully"}
+    return {
+        "status": "success",
+        "message": f"{username} deleted successfully"
+    }

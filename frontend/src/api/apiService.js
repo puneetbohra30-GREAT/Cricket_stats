@@ -29,7 +29,7 @@ export const getProfile = async (username) => {
 // CRICKET APIs
 // ===============================
 export const getLiveMatches = async () => {
-  const res = await API.get("/live");
+  const res = await API.get("/cricket/live");
   return res.data;
 };
 

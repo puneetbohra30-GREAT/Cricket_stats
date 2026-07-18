@@ -14,7 +14,7 @@ function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  // AUTO REDIRECT (already logged in)
+  // AUTO REDIRECT
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -24,14 +24,13 @@ function Auth() {
 
   const submit = async () => {
     try {
-      //  VALIDATION
       if (!form.username || !form.password) {
-        alert("Username & Password required ");
+        alert("Username & Password required");
         return;
       }
 
       if (!isLogin && !form.email) {
-        alert("Email required ");
+        alert("Email required");
         return;
       }
 
@@ -45,19 +44,18 @@ function Auth() {
 
         console.log("LOGIN RESPONSE:", res);
 
-        const token = res?.access_token || res?.token;
+        // ✅ FINAL FIX
+        const token = res.data.access_token;
 
         if (!token) {
           throw new Error("Token not received from server");
         }
 
-        // SAVE TOKEN
         localStorage.setItem("token", token);
 
-        //  FORCE NAVBAR UPDATE
         window.dispatchEvent(new Event("storage"));
 
-        alert("Login Successful ");
+        alert("Login Successful");
 
         navigate("/", { replace: true });
 
@@ -68,7 +66,7 @@ function Auth() {
           password: form.password
         });
 
-        alert("Register Successful , अब Login करो");
+        alert("Register Successful, अब Login करो");
 
         setIsLogin(true);
 
@@ -85,7 +83,7 @@ function Auth() {
       alert(
         err?.response?.data?.detail ||
         err.message ||
-        "Something went wrong "
+        "Something went wrong"
       );
     } finally {
       setLoading(false);
@@ -94,7 +92,7 @@ function Auth() {
 
   return (
     <div style={styles.container}>
-      <h2>{isLogin ? " Login" : " Register"}</h2>
+      <h2>{isLogin ? "Login" : "Register"}</h2>
 
       <input
         placeholder="Username"
@@ -137,7 +135,6 @@ function Auth() {
   );
 }
 
-// ================== STYLES ==================
 const styles = {
   container: {
     padding: "30px",

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database.db import get_db
 from database.models.user import User
@@ -36,9 +36,9 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             "user_id": new_user.id
         }
 
-    except Exception as e:
+    except Exception:
         db.rollback()
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Registration failed")
 
 
 # -------------------------------

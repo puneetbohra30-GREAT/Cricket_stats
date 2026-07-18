@@ -5,7 +5,8 @@ from database.models.user import User
 from database.schemas.user import UserCreate, UserLogin
 from utils.auth_utils import hash_password, verify_password, create_token
 
-router = APIRouter(prefix="/auth", tags=["Auth"])  # ✅ PREFIX ADDED
+# ❌ IMPORTANT: prefix यहाँ मत लगाओ
+router = APIRouter(tags=["Auth"])
 
 
 # -------------------------------
@@ -40,11 +41,11 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             "user_id": new_user.id
         }
 
-    except Exception as e:
+    except Exception:
         db.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Registration failed: {str(e)}"
+            detail="Registration failed"
         )
 
 
@@ -71,7 +72,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
 
     return {
         "status": "success",
-        "access_token": token,   # ✅ IMPORTANT (frontend इसी से लेगा)
+        "access_token": token,   # ✅ frontend यही लेगा
         "token_type": "bearer"
     }
 

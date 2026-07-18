@@ -55,7 +55,7 @@ async def log_requests(request: Request, call_next):
 # ================================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # change in production
+    allow_origins=["*"],   # ⚠️ production में specific domain डालना
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -76,31 +76,31 @@ def health():
 
 
 # ================================
-# ROUTES (IMPORTANT FIXED)
+# ROUTES
 # ================================
 
-# ✅ auth → /auth/*
-app.include_router(auth.router, prefix="/auth")
+# ✅ AUTH → /auth/*
+app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 
-# ✅ cricket → /cricket/*
+# ✅ CRICKET → /cricket/*
 # ⚠️ cricket.py में prefix नहीं होना चाहिए
-app.include_router(cricket.router, prefix="/cricket")
+app.include_router(cricket.router, prefix="/cricket", tags=["Cricket"])
 
-# ✅ user → /user/*
-app.include_router(user.router, prefix="/user")
+# ✅ USER → /user/*
+app.include_router(user.router, prefix="/user", tags=["User"])
 
-# ✅ chat → /chat/*
-app.include_router(chat.router, prefix="/chat")
+# ✅ CHAT → /chat/*
+app.include_router(chat.router, prefix="/chat", tags=["Chat"])
 
 # OPTIONAL MODULES
 if settings.ENABLE_INSIGHTS:
-    app.include_router(insights.router, prefix="/insights")
+    app.include_router(insights.router, prefix="/insights", tags=["Insights"])
 
 if settings.ENABLE_KNOWLEDGE:
-    app.include_router(knowledge.router, prefix="/knowledge")
+    app.include_router(knowledge.router, prefix="/knowledge", tags=["Knowledge"])
 
 if settings.ENABLE_EXTERNAL:
-    app.include_router(external.router, prefix="/external")
+    app.include_router(external.router, prefix="/external", tags=["External"])
 
 
 # ================================

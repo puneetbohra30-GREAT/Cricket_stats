@@ -5,14 +5,14 @@ import API from "./api";
 // ===============================
 export const login = async (data) => {
   const res = await API.post("/auth/login", data);
-  console.log(" LOGIN API:", res.data);
-  return res.data;
+  console.log("LOGIN API:", res.data);
+  return res; // ✅ FULL RESPONSE RETURN
 };
 
 export const register = async (data) => {
   const res = await API.post("/auth/register", data);
-  console.log(" REGISTER API:", res.data);
-  return res.data;
+  console.log("REGISTER API:", res.data);
+  return res; // ✅ FULL RESPONSE RETURN
 };
 
 // ===============================
@@ -46,16 +46,14 @@ export const getSchedule = async () => {
 };
 
 // ===============================
-// CHAT API (FIXED)
+// CHAT API
 // ===============================
 export const sendChat = async (message) => {
   if (!message) return null;
 
   const res = await API.post("/chat/", {
-    message: message   // FIXED
+    message: message
   });
-
-  console.log(" CHAT API:", res.data);
 
   return res.data;
 };
